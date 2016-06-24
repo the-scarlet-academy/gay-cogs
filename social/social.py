@@ -131,7 +131,7 @@ class Social:
     if gif:
       gif = gif.lower()
       if gif in adores:
-        return await self.bot.upload("data/gifs/adore/{0}.gif".format(gif))
+        return await self.bot.upload("data/social/adore/{0}.gif".format(gif))
     await self.upload_random_gif(None, "adore")
 
   @commands.command()
@@ -149,7 +149,7 @@ class Social:
   async def upload_random_gif(self, msg, folder):
     if msg:
       await self.bot.say(msg)
-    folderPath = "data/gifs/" + folder
+    folderPath = "data/social/" + folder
     fileList = os.listdir(folderPath)
     gifPath = folderPath + "/" + fileList[randint(0, len(fileList) - 1)]
     await self.bot.upload(gifPath)
